@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #5c67f2;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #e2e2e2;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+
+        li:hover {
+            transform: scale(1.02);
+        }
+
+        .prevention, .treatment {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #5c67f2;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: #5c67f2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4a54e1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cancer Information</h1>
+
+        <h2>Types of Cancer</h2>
+        <ul>
+            <li>Breast Cancer</li>
+            <li>Lung Cancer</li>
+            <li>Prostate Cancer</li>
+            <li>Colorectal Cancer</li>
+            <li>Skin Cancer</li>
+            <li>Leukemia</li>
+        </ul>
+
+        <h2>Symptoms</h2>
+        <ul>
+            <li>Unexplained weight loss</li>
+            <li>Fever or fatigue</li>
+            <li>Pain that doesn't go away</li>
+            <li>Changes in skin color or texture</li>
+            <li>Persistent cough or trouble breathing</li>
+            <li>Changes in bowel or bladder habits</li>
+        </ul>
+
+        <h2>Prevention</h2>
+        <div class="prevention">
+            <div class="card">Maintain a healthy diet and exercise regularly.</div>
+            <div class="card">Avoid tobacco and limit alcohol consumption.</div>
+            <div class="card">Protect skin from excessive sun exposure.</div>
+            <div class="card">Get regular screenings and vaccinations.</div>
+        </div>
+
+        <h2>Treatment</h2>
+        <div class="treatment">
+            <div class="card">Surgery to remove tumors.</div>
+            <div class="card">Chemotherapy to kill cancer cells.</div>
+            <div class="card">Radiation therapy to target tumors.</div>
+            <div class="card">Immunotherapy to boost the immune response.</div>
+        </div>
+
+        <button onclick="alert('For more information, please consult a healthcare provider or visit the CDC website.')">More Information</button>
+    </div>
+</body>
+</html>
