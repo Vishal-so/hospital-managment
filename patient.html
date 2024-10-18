@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vishal sonawane</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<style>
+fieldset{margin:50px 500px;padding:20px} label{font-size:22px}
+input[type=text], input[type=number] { width: 100%;
+padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #aa4848;
+box-sizing: border-box; font-size:18px;
+}
+input[type=submit] {
+background-color: rgb(48, 93, 189) ; color: rgb(245, 240, 240);
+padding: 4px 16px; margin: 16px 0; border: none; cursor: pointer; width: 100%;
+}
+p{font-family:arial;text-align:right}
+</style>
+</head>
+<body>
+<form action="patient1.php" method="POST">
+<fieldset>
+<label>Patient Name :</label><br/><input type="text" name= "pname" placeholder="Enter Patient name" required><br/>
+<label>Address :</label><br/><input type="text" name="address" placeholder="Enter address" required><br/>
+<label>Age :</label><br/><input type="number" name="Age" placeholder="Enter Age" required><br/>
+<label>Phone no.:</label><br/><input type="number" name= "pnumber" placeholder="Enter phone number" required><br/>
+<label>BLood Group :</label><br/><input type="text" name="bgroup" placeholder="Enter bloodgroup" required><br/>
+<label>Disease/case :</label><br/><input type="text" name="case" placeholder="Enter Problem" required><br/>
+<input type="submit" value="ADD">
+<p>[Click Here] <a href="hospital.py" target="_blank">SHOW
+</a></p>
+</fieldset>
+</form>
+	<div id="slideout-menu">
+<ul>
+		<li>
+			<a href="#">Dashboard</a>
+		</li>
+		<li>
+			<a href="#">Diseases</a>
+		</li>
+		<li>
+			<a href="#">Department</a>
+		</li>
+		<li>
+			<a href="#">Patient</a>
+		</li>
+		<li>
+			<a href="#">Schedule</a>
+		</li>
+		<li>
+			<a href="#">About</a>
+		</li>
+		<li>
+			<input type="text" placeholder="Search Here">
+			<br>
+			
+		</li>
+	</ul>
+</div>
+<nav>
+	<div id="logo-img">
+		
+	</div>
+	<div id="menu-icon">
+		<i class="fas fa-bars"></i>
+	</div>
+	<ul>
+		<li>
+			<a class="active" href="index.html">Dashboard</a>
+		</li>
+		<li>
+			<a href="disease.html">Disease</a>
+		</li>
+		<li>
+			<a href="department.html">Department</a>
+		</li>
+		<li>
+			<a href="patient.html">Patient</a>
+		</li>
+		<li>
+			<a href="schedule.html">Schedule</a>
+		</li>
+		
+		<li>
+			<a href="about.html">About</a>
+		</li>
+
+
+
+<script src="main.js"></script>
+</body>
+</html>
+
