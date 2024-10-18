@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        header {
+            background: #007bff;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .cart-list {
+            margin-top: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item h3 {
+            margin: 0;
+        }
+
+        .cancel-button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cancel-button:hover {
+            background: #c82333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #007bff;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Cart</h1>
+            <a href="index.html" style="color: white;">Back to Shopping</a>
+        </header>
+        
+        <div class="cart-list" id="cart-list">
+            <!-- Cart items will be populated here -->
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Online Medicine Store</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartList = document.getElementById("cart-list");
+
+            if (cart.length === 0) {
+                cartList.innerHTML = "<p>Your cart is empty!</p>";
+            } else {
+                cart.forEach((item, index) => {
+                    const cartItemDiv = document.createElement("div");
+                    cartItemDiv.classList.add("cart-item");
+                    cartItemDiv.innerHTML = `
+                        <h3>${item.name}</h3>
+                        <p>$${item.price.toFixed(2)}</p>
+                        <button class="cancel-button" onclick="removeFromCart(${index})">Cancel</button>
+                    `;
+                    cartList.appendChild(cartItemDiv);
+                });
+            }
+        });
+
+        function removeFromCart(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1); // Remove item at the specified index
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update local storage
+            location.reload(); // Refresh the page to show updated cart
+        }
+    </script>
+</body>
+</html>
