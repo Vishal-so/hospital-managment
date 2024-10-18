@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surgery Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgb(66, 85, 192);
+        }
+
+        h1, h2 {
+            color: #4c4c4d;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #e2e2e2;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #5c67f2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4a54e1;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Surgery Schedule</h1>
+        <div class="surgery-types">
+            <h2>Types of Surgery</h2>
+            <ul id="surgeryList"></ul>
+        </div>
+        <div class="schedule">
+            <h2>Department Schedule</h2>
+            <button onclick="toggleSchedule()">Toggle Schedule</button>
+            <div id="scheduleList" class="hidden"></div>
+        </div>
+    </div>
+    <script>
+        const surgeryTypes = [
+            'Appendectomy',
+            'Cholecystectomy',
+            'Hernia Repair',
+            'Knee Replacement',
+            'Hip Replacement',
+            'CABG (Coronary Artery Bypass Grafting)',
+        ];
+
+        const departmentSchedule = [
+            { department: 'General Surgery', time: 'Monday - Friday, 9 AM - 5 PM' },
+            { department: 'Orthopedics', time: 'Monday - Thursday, 10 AM - 4 PM' },
+            { department: 'Cardiology', time: 'Tuesday - Friday, 8 AM - 3 PM' },
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const surgeryList = document.getElementById('surgeryList');
+            surgeryTypes.forEach(surgery => {
+                const li = document.createElement('li');
+                li.textContent = surgery;
+                surgeryList.appendChild(li);
+            });
+        });
+
+        function toggleSchedule() {
+            const scheduleList = document.getElementById('scheduleList');
+            if (scheduleList.classList.contains('hidden')) {
+                scheduleList.innerHTML = departmentSchedule.map(item => `<p>${item.department}: ${item.time}</p>`).join('');
+                scheduleList.classList.remove('hidden');
+            } else {
+                scheduleList.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
