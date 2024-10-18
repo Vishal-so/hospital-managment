@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #007bff;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .schedule {
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #007bff;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hospital Schedule</h1>
+        </header>
+        
+        <div class="schedule">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Doctor</th>
+                        <th>Specialty</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="schedule-body">
+                    <!-- Schedule will be populated here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Hospital Management System</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const schedule = [
+                { time: "09:00 AM", doctor: "Dr. Smith", specialty: "Cardiology", status: "Available" },
+                { time: "10:00 AM", doctor: "Dr. Jones", specialty: "Pediatrics", status: "Unavailable" },
+                { time: "11:00 AM", doctor: "Dr. Brown", specialty: "Neurology", status: "Available" },
+                { time: "01:00 PM", doctor: "Dr. Wilson", specialty: "General Practice", status: "Available" },
+                { time: "02:00 PM", doctor: "Dr. Taylor", specialty: "Orthopedics", status: "Unavailable" },
+            ];
+
+            const scheduleBody = document.getElementById("schedule-body");
+            
+            schedule.forEach(entry => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${entry.time}</td>
+                    <td>${entry.doctor}</td>
+                    <td>${entry.specialty}</td>
+                    <td>${entry.status}</td>
+                `;
+                scheduleBody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>
