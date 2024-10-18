@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiology Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #e2e2e2;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #5c67f2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4a54e1;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Radiology Schedule</h1>
+        
+        <div class="radiology-services">
+            <h2>Available Radiology Services</h2>
+            <button onclick="toggleRadiologyServices()">Toggle Radiology Services</button>
+            <div id="radiologyList" class="hidden"></div>
+        </div>
+
+        <div class="schedule">
+            <h2>Radiology Schedule</h2>
+            <button onclick="toggleRadiologySchedule()">Toggle Schedule</button>
+            <div id="radiologySchedule" class="hidden"></div>
+        </div>
+    </div>
+
+    <script>
+        const radiologyServices = [
+            'X-Ray',
+            'MRI',
+            'CT Scan',
+            'Ultrasound',
+            'Fluoroscopy',
+        ];
+
+        const radiologySchedule = [
+            { service: 'X-Ray', time: 'Monday - Saturday, 8 AM - 5 PM' },
+            { service: 'MRI', time: 'Tuesday - Friday, 10 AM - 6 PM' },
+            { service: 'CT Scan', time: 'Monday - Thursday, 8 AM - 3 PM' },
+            { service: 'Ultrasound', time: 'Wednesday - Saturday, 9 AM - 1 PM' },
+            { service: 'Fluoroscopy', time: 'Monday - Friday, 9 AM - 4 PM' },
+        ];
+
+        function toggleRadiologyServices() {
+            const radiologyList = document.getElementById('radiologyList');
+            if (radiologyList.classList.contains('hidden')) {
+                radiologyList.innerHTML = radiologyServices.map(item => `<p>${item}</p>`).join('');
+                radiologyList.classList.remove('hidden');
+            } else {
+                radiologyList.classList.add('hidden');
+            }
+        }
+
+        function toggleRadiologySchedule() {
+            const radiologyScheduleDiv = document.getElementById('radiologySchedule');
+            if (radiologyScheduleDiv.classList.contains('hidden')) {
+                radiologyScheduleDiv.innerHTML = radiologySchedule.map(item => `<p>${item.service}: ${item.time}</p>`).join('');
+                radiologyScheduleDiv.classList.remove('hidden');
+            } else {
+                radiologyScheduleDiv.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
